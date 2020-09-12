@@ -14,9 +14,11 @@ const {
 } = require("../controller/reviews");
 
 const movies = require("./movies");
+const trailer = require("./trailer");
 
 // Re-route into other resource routers
 router.use("/:reviewId/movies", movies);
+router.use("/:reviewId/trailers", trailer);
 
 router.route("/").get(getReviews).post(upload.single("movieImg"), createReview);
 

@@ -8,6 +8,7 @@ connectDB();
 //Route files
 const reviews = require("./routes/reviews");
 const movies = require("./routes/movies");
+const trailer = require("./routes/trailer");
 
 // Load env vars
 dotenv.config({ path: "./config/config.env" });
@@ -23,6 +24,7 @@ app.use("/uploads", express.static("uploads"));
 //Mount routes
 app.use("/api/v1/reviews", reviews);
 app.use("/api/v1/movies", movies);
+app.use("/api/v1/trailers", trailer);
 
 //errorHandler
 app.use(errorHandler);

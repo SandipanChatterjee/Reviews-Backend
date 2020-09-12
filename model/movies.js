@@ -18,6 +18,8 @@ const MoviesSchema = new Schema({
     type: String,
     required: [true, "Please enter story"],
   },
+  parentalGuidelines: ["TV_MA", "TV-14", "TV-PG"],
+  dateOfRelease: Date,
   photos: [],
   members: {},
   review: {
