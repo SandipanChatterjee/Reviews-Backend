@@ -1,8 +1,6 @@
-const errorHandler = (err, req, res, next) => {
-  if (res.headersSent) {
-    return next(err);
-  }
-  res.status(404).json({ error: err.message });
+const errorHandler = (errMsg, res, next) => {
+  res.status(404).json({ error: errMsg });
+  // next();
 };
 
 module.exports = errorHandler;

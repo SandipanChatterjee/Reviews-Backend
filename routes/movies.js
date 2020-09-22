@@ -1,24 +1,16 @@
 const express = require("express");
 const router = express.Router({ mergeParams: true });
-const storage = require("../middleware/diskStorage");
+const storage = require("../middleware/diskstorage");
 var multer = require("multer");
 var upload = multer({ storage: storage });
 
 const { getMovies, createMovies } = require("../controller/movies");
 
-/*const field = [
-  {
-    name: "photos",
-    maxCount: 12,
-  },
-  {
-    name: "members",
-    maxCount: 1,
-  },
-];*/
+const rating = require("./rating");
+
+// Re-route into other resource routers
+router.use("/:movieId/rating", rating);
 
 router.route("/").get(getMovies).post(upload.array("photos"), createMovies);
-
-// router.route("/:id").get(getMovie).put(updateMovie).delete(deleteMovie);
 
 module.exports = router;

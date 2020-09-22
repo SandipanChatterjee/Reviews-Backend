@@ -22,6 +22,8 @@ const MoviesSchema = new Schema({
   dateOfRelease: Date,
   photos: [],
   members: {},
+  averageRating: Number,
+  // usersRated: Number,
   review: {
     type: mongoose.Schema.ObjectId,
     ref: "Review",

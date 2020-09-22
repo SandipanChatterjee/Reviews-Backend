@@ -54,6 +54,9 @@ exports.updateReview = asyncHandler(async (req, res, next) => {
     );
   }
   console.log("req.body ####", req.body);
+  if (req.file) {
+    req.body.movieImg = req.file.path;
+  }
   query = await Reviews.findByIdAndUpdate(req.params.id, req.body, {
     runValidators: true,
     new: true,

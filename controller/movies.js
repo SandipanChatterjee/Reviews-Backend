@@ -8,7 +8,6 @@ const members = require("../data/members.json");
 // @route     GET /api/v1/reviews/:reviewId/movies
 // @access    Public
 exports.getMovies = asyncHandler(async (req, res, next) => {
-  console.log("reviewID###", req.params.reviewId);
   let query;
   if (req.params.reviewId) {
     query = await Movies.find({ review: req.params.reviewId });
